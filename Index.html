@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Situation Monitor — Demo</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="title">SITUATION MONITOR</div>
+    <div class="controls">
+      <button id="btn-refresh" class="btn">REFRESH</button>
+      <div class="legend"><span class="dot low"></span> Low <span class="dot mid"></span> Elevated <span class="dot high"></span> High</div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="map-panel">
+      <div id="map"></div>
+
+      <div class="map-ui">
+        <div class="filter-panel">
+          <div class="filter-title">Categories</div>
+          <label><input type="checkbox" value="military" checked> Military</label>
+          <label><input type="checkbox" value="civil" checked> Civil</label>
+          <label><input type="checkbox" value="tech" checked> Tech</label>
+          <label><input type="checkbox" value="financial" checked> Financial</label>
+        </div>
+
+        <div class="heat-controls">
+          <label>Heat intensity <input id="heat-int" type="range" min="0.1" max="2" step="0.1" value="1"></label>
+          <label>Radius <input id="heat-rad" type="range" min="10" max="50" step="1" value="25"></label>
+        </div>
+
+        <div class="timeline">
+          <input id="time-slider" type="range" min="0" max="100" value="100">
+        </div>
+      </div>
+    </section>
+
+    <section class="panels">
+      <div class="panel livestream ">
+        <div class="panel-title">Livestream</div>
+        <div class="video-placeholder">LIVE STREAM</div>
+      </div>
+
+      <div class="panel news-grid" id="news-grid">
+        <div class="panel-title">World / Geopolitical</div>
+        <!-- новости будут вставлены скриптом -->
+      </div>
+
+      <div class="panel heatmap-legend">
+        <div class="panel-title">Sector Heatmap</div>
+        <div class="heat-legend-grid">
+          <div>Tech <span class="tag pos">+1.2%</span></div>
+          <div>Finance <span class="tag neg">-0.7%</span></div>
+          <div>Energy <span class="tag pos">+0.5%</span></div>
+          <div>Health <span class="tag pos">+0.8%</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Updated: <span id="updated-time"></span></small>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
