@@ -1,0 +1,60 @@
+:root{
+  --bg:#0b0f0d;
+  --panel:#0f1413;
+  --accent:#00ff9c;
+  --muted:#8b918f;
+  --danger:#ff3b3b;
+  --glass:rgba(255,255,255,0.03);
+  font-family:InterVar, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;background:linear-gradient(180deg,#061210 0%, #071414 100%);color:#cfd6d2}
+.topbar{height:56px;display:flex;align-items:center;justify-content:space-between;padding:8px 18px;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px)}
+.brand{font-weight:700;letter-spacing:2px}
+.updated-wrap{display:flex;gap:12px;align-items:center}
+#last-updated{font-size:13px;color:var(--muted)}
+.btn{background:linear-gradient(90deg,#05120b,#072018);border:1px solid rgba(255,255,255,0.04);color:var(--accent);padding:8px 12px;border-radius:6px;cursor:pointer}
+
+.main{display:flex;flex-direction:column;padding:12px;gap:12px;height:calc(100% - 56px)}
+.map-panel{flex:1;position:relative;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:var(--panel);display:flex;flex-direction:column}
+.map-controls{position:absolute;z-index:400;top:12px;left:12px;display:flex;gap:12px;align-items:center}
+.filters .filter{background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.03);color:var(--muted);padding:6px 10px;border-radius:4px;cursor:pointer}
+.filters .filter.active{background:rgba(0,0,0,0.8);color:var(--accent)}
+.legend{color:var(--muted);font-size:13px}
+.map{height:420px;width:100%}
+
+/* panels */
+.panels{display:flex;gap:12px;flex-direction:column}
+.streams{display:flex;gap:12px}
+.video-placeholder{width:320px;height:200px;background:#071312;border-radius:6px;border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.news-columns{flex:1;display:flex;gap:12px}
+.col{background:rgba(0,0,0,0.35);padding:10px;border-radius:6px;min-height:200px;flex:1;overflow:auto}
+.col h3{margin:0 0 8px 0;font-size:13px;color:var(--accent)}
+.col ul{list-style:none;margin:0;padding:0}
+.col li{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.02);font-size:13px}
+.bottom-row{display:flex;gap:12px}
+.predictions, .heat-legend{flex:1;background:rgba(0,0,0,0.35);padding:10px;border-radius:6px;min-height:80px}
+.sectors{display:flex;gap:8px;flex-wrap:wrap}
+.sector{padding:6px 8px;border-radius:4px;background:#081513;color:#bfead0;font-size:13px}
+
+/* tooltips */
+.leaflet-tooltip.mytooltip{background:rgba(0,0,0,0.85);color:#fff;border-radius:4px;padding:6px 8px;font-size:13px}
+
+/* responsive */
+@media (max-width:900px){
+  .map{height:320px}
+  .streams{flex-direction:column}
+  .video-placeholder{width:100%;height:160px}
+  .news-columns{flex-direction:column}
+  .col{min-height:120px}
+}
+@media (max-width:480px){
+  .topbar{padding:8px}
+  .brand{font-size:13px}
+  #last-updated{font-size:12px}
+  .map{height:240px}
+  .btn{padding:6px 8px;font-size:12px}
+  .map-controls{left:8px;top:8px}
+  .filters .filter{padding:6px 8px;font-size:12px}
+}
